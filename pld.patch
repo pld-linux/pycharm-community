@@ -1,0 +1,42 @@
+--- pycharm-community-5.0.3/bin/pycharm.sh~	2015-12-22 20:57:00.000000000 +0200
++++ pycharm-community-5.0.3/bin/pycharm.sh	2016-01-22 22:04:01.703865232 +0200
+@@ -168,7 +168,10 @@
+   fi
+ fi
+ 
+-IDE_JVM_ARGS="-Didea.platform.prefix=PyCharmCore -Didea.no.jre.check=true"
++CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/PyCharm"
++CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/PyCharm"
++
++IDE_JVM_ARGS="-Didea.platform.prefix=PyCharmCore -Didea.no.jre.check=true -Dconfig.dir=$CONFIG_DIR -Dcache.dir=$CACHE_DIR"
+ 
+ CLASSPATH="$IDE_HOME/lib/bootstrap.jar"
+ CLASSPATH="$CLASSPATH:$IDE_HOME/lib/extensions.jar"
+--- pycharm-community-5.0.3/bin/idea.properties~	2015-12-22 20:58:14.000000000 +0200
++++ pycharm-community-5.0.3/bin/idea.properties	2016-01-22 22:05:34.218598736 +0200
+@@ -6,21 +6,25 @@
+ # Uncomment this option if you want to customize path to IDE config folder. Make sure you're using forward slashes.
+ #---------------------------------------------------------------------
+ # idea.config.path=${user.home}/.PyCharm/config
++idea.config.path=${config.dir}
+ 
+ #---------------------------------------------------------------------
+ # Uncomment this option if you want to customize path to IDE system folder. Make sure you're using forward slashes.
+ #---------------------------------------------------------------------
+ # idea.system.path=${user.home}/.PyCharm/system
++idea.system.path=${cache.dir}
+ 
+ #---------------------------------------------------------------------
+ # Uncomment this option if you want to customize path to user installed plugins folder. Make sure you're using forward slashes.
+ #---------------------------------------------------------------------
+ # idea.plugins.path=${idea.config.path}/plugins
++idea.plugins.path=${config.dir}/plugins
+ 
+ #---------------------------------------------------------------------
+ # Uncomment this option if you want to customize path to IDE logs folder. Make sure you're using forward slashes.
+ #---------------------------------------------------------------------
+ # idea.log.path=${idea.system.path}/log
++idea.log.path=${cache.dir}/log
+ 
+ #---------------------------------------------------------------------
+ # Maximum file size (kilobytes) IDE should provide code assistance for.

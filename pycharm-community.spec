@@ -3,7 +3,7 @@
 Summary:	Python IDE for Professional Developers
 Name:		%{product}-community
 Version:	5.0.3
-Release:	0.2
+Release:	0.3
 # TODO: figure out what's the licensing and redistribution
 License:	?
 Group:		Development/Tools
@@ -11,7 +11,7 @@ Source0:	https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 # NoSource0-md5:	9a62285ee71fdc00a928e131e4d55839
 NoSource:	0
 #Source1:	%{product}.desktop
-#Source2:	%{name}.py
+Source2:	charm.py
 Patch0:		pld.patch
 URL:		https://www.jetbrains.com/pycharm/
 BuildRequires:	jpackage-utils
@@ -82,8 +82,7 @@ cp -a$l bin help helpers lib license plugins $RPM_BUILD_ROOT%{_appdir}
 ln -s %{_pixmapsdir}/%{product}.png $RPM_BUILD_ROOT%{_appdir}/bin/%{product}.png
 cp -p %{product}.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{product}.png
 #cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-#install -p %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}/%{name}
-ln -s %{_appdir}/bin/%{product}.sh $RPM_BUILD_ROOT%{_bindir}/%{name}
+install -p %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT

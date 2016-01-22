@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import socket
@@ -10,7 +10,7 @@ import time
 # see com.intellij.idea.SocketLock for the server side of this interface
 
 RUN_PATH = u'/usr/lib/pycharm-community/bin/pycharm.sh'
-CONFIG_PATH = u'/home/glen/.config/PyCharm'
+CONFIG_PATH = os.path.expanduser('~/.config/PyCharm')
 
 args = []
 skip_next = False
@@ -101,5 +101,4 @@ if sys.platform == "darwin":
     os.execvp("open", ["-a", RUN_PATH] + args)
 else:
     # unix common
-    bin_dir, bin_file = os.path.split(RUN_PATH)
-    os.execv(RUN_PATH, [bin_file] + args)
+    os.execv(RUN_PATH, [RUN_PATH] + args)

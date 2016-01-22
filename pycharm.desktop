@@ -2,8 +2,8 @@
 Version=1.0
 Type=Application
 Name=PyCharm Community Edition
-Icon=/usr/lib/pycharm-community/bin/pycharm.png
-Exec="/usr/lib/pycharm-community/bin/pycharm.sh" %f
+Icon=pycharm-community
+Exec=pycharm-community %f
 Comment=Develop with pleasure!
 Categories=Development;IDE;
 Terminal=false

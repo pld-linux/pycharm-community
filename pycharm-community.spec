@@ -3,14 +3,14 @@
 Summary:	Python IDE for Professional Developers
 Name:		%{product}-community
 Version:	5.0.3
-Release:	0.3
+Release:	0.4
 # TODO: figure out what's the licensing and redistribution
 License:	?
 Group:		Development/Tools
 Source0:	https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 # NoSource0-md5:	9a62285ee71fdc00a928e131e4d55839
 NoSource:	0
-#Source1:	%{product}.desktop
+Source1:	%{product}.desktop
 Source2:	charm.py
 Patch0:		pld.patch
 URL:		https://www.jetbrains.com/pycharm/
@@ -80,8 +80,8 @@ install -d $RPM_BUILD_ROOT{%{_appdir},%{_bindir},%{_pixmapsdir},%{_desktopdir}}
 cp -l build.txt $RPM_BUILD_ROOT/cp-test && l=l && rm -f $RPM_BUILD_ROOT/cp-test
 cp -a$l bin help helpers lib license plugins $RPM_BUILD_ROOT%{_appdir}
 ln -s %{_pixmapsdir}/%{product}.png $RPM_BUILD_ROOT%{_appdir}/bin/%{product}.png
-cp -p %{product}.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{product}.png
-#cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+cp -p %{product}.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 install -p %{SOURCE2} $RPM_BUILD_ROOT%{_bindir}/%{name}
 
 %clean
@@ -117,5 +117,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_appdir}/lib/libpty/linux
 %dir %{_appdir}/lib/libpty/linux/x86*
 %attr(755,root,root) %{_appdir}/lib/libpty/linux/x86*/libpty.so
-#%{_desktopdir}/%{name}.desktop
-%{_pixmapsdir}/%{product}.png
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.png

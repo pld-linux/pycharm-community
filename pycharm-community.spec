@@ -2,13 +2,13 @@
 %include	/usr/lib/rpm/macros.java
 Summary:	Python IDE for Professional Developers
 Name:		%{product}-community
-Version:	5.0.3
-Release:	0.4
+Version:	5.0.4
+Release:	1
 # TODO: figure out what's the licensing and redistribution
 License:	?
 Group:		Development/Tools
 Source0:	https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-# NoSource0-md5:	9a62285ee71fdc00a928e131e4d55839
+# NoSource0-md5:	83be1734dc491ad6f4dca9950fb74eeb
 NoSource:	0
 Source1:	%{product}.desktop
 Source2:	charm.py

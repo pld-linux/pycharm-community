@@ -1,17 +1,23 @@
---- pycharm-community-5.0.3/bin/pycharm.sh~	2015-12-22 20:57:00.000000000 +0200
-+++ pycharm-community-5.0.3/bin/pycharm.sh	2016-01-22 22:04:01.703865232 +0200
-@@ -168,7 +168,10 @@
-   fi
+--- pycharm-community-2016.1.2/bin/pycharm.sh~	2016-04-08 20:03:54.000000000 +0300
++++ pycharm-community-2016.1.2/bin/pycharm.sh	2016-04-25 23:54:46.881499322 +0300
+@@ -177,6 +177,9 @@
+   CLASSPATH="$CLASSPATH:$PYCHARM_CLASSPATH"
  fi
  
--IDE_JVM_ARGS="-Didea.platform.prefix=PyCharmCore -Didea.no.jre.check=true"
 +CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/PyCharm"
 +CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/PyCharm"
 +
-+IDE_JVM_ARGS="-Didea.platform.prefix=PyCharmCore -Didea.no.jre.check=true -Dconfig.dir=$CONFIG_DIR -Dcache.dir=$CACHE_DIR"
- 
- CLASSPATH="$IDE_HOME/lib/bootstrap.jar"
- CLASSPATH="$CLASSPATH:$IDE_HOME/lib/extensions.jar"
+ # ---------------------------------------------------------------------
+ # Run the IDE.
+ # ---------------------------------------------------------------------
+@@ -186,6 +189,7 @@
+   "-Xbootclasspath/a:$IDE_HOME/lib/boot.jar" \
+   -classpath "$CLASSPATH" \
+   $VM_OPTIONS \
++  -Dconfig.dir="$CONFIG_DIR" -Dcache.dir="$CACHE_DIR" \
+   "-Djb.vmOptionsFile=$VM_OPTIONS_FILE" \
+   "-XX:ErrorFile=$HOME/java_error_in_PYCHARM_%p.log" \
+   "-XX:HeapDumpPath=$HOME/java_error_in_PYCHARM.hprof" \
 --- pycharm-community-5.0.3/bin/idea.properties~	2015-12-22 20:58:14.000000000 +0200
 +++ pycharm-community-5.0.3/bin/idea.properties	2016-01-22 22:05:34.218598736 +0200
 @@ -6,21 +6,25 @@

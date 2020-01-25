@@ -1,5 +1,4 @@
 %define		product	pycharm
-%include	/usr/lib/rpm/macros.java
 Summary:	Python IDE for Professional Developers
 Name:		%{product}-community
 Version:	2016.1.2

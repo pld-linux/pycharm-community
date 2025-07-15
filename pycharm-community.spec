@@ -63,7 +63,7 @@ rm -r lib/libpty/linux/x86
 %endif
 rm -r lib/libpty/{macosx,win}
 rm bin/fsnotifier-arm
-%patch0 -p1
+%patch -P0 -p1
 chmod a+rx bin/fsnotifier* lib/libpty/linux/*/libpty.so
 mv bin/%{product}.png .
 
